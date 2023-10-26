@@ -30,13 +30,13 @@ public class Person extends Thread {
     }
 
     public boolean eat() throws InterruptedException {
-        boolean leftFree = leftFork.busy();
-        if (!leftFree) {
+        boolean leftIsFree = leftFork.busy();
+        if (!leftIsFree) {
             System.out.printf(" -- %s Не удалось взять левую вилку\n", name);
             return false;
         }
-        boolean rightFree = rightFork.busy();
-        if (!rightFree) {
+        boolean rightIsFree = rightFork.busy();
+        if (!rightIsFree) {
             leftFork.free();
             System.out.printf(" -- %s Не удалось взять правую вилку, кладем левую\n", name);
             return false;
@@ -46,7 +46,6 @@ public class Person extends Thread {
         leftFork.free();
         sleep(Settings.SLEEP_TIME);
         rightFork.free();
-        sleep(Settings.SLEEP_TIME);
         return true;
     }
 

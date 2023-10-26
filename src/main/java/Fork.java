@@ -1,5 +1,5 @@
 public class Fork {
-    private boolean isFree = true;
+    private volatile boolean isFree = true;
 
     public synchronized boolean busy() {
         int count = 0;
