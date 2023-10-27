@@ -41,16 +41,13 @@ public class Person extends Thread {
             System.out.printf(" -- %s Не удалось взять правую вилку, кладем левую\n", name);
             return false;
         }
-        sleep(Settings.SLEEP_TIME);
         System.out.printf("%s ест %s раз\n", name, count+1);
         leftFork.free();
-        sleep(Settings.SLEEP_TIME);
         rightFork.free();
         return true;
     }
 
     public void think() throws InterruptedException {
         System.out.printf("%s думает\n", name);
-        sleep(Settings.SLEEP_TIME);
     }
 }
